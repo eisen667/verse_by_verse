@@ -14,7 +14,7 @@ class Sura(models.Model):
     revelationType = models.CharField(max_length=128)
 
     def __str__(self):
-        return f"{self.sura_number}     {self.name}"
+        return f"{self.number} : {self.name} : {self.englishName}"
     
 class Aya(models.Model):
     """
