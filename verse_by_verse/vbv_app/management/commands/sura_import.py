@@ -26,4 +26,3 @@ class Command(BaseCommand):
                     self.stdout.write(self.style.WARNING(f"Sura {sura.number} - {sura.name} already exists, skipping update."))
         else:
             self.stdout.write(self.style.ERROR(f"API request failed with status code: {response.status_code}"))
-
