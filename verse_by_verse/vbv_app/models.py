@@ -20,6 +20,7 @@ class Aya(models.Model):
     """
     Model for verse (Ayah) of the Quran.
     """
+    verse_key = models.CharField(primary_key=True, default=0, max_length=128)
     sura = models.ForeignKey(Sura, on_delete=models.CASCADE)
     aya_number = models.IntegerField()
     arabic_text = models.TextField()
@@ -37,15 +38,6 @@ class Qari(models.Model):
 
     def __str__(self):
         return self.qari_name
-    
-class Recitation(models.Model):
-    """
-    Model for a recording of a specific Ayah recited by a Qari.
-    """
-    sura = models.ForeignKey(Sura, on_delete=models.CASCADE)
-    aya = models.ForeignKey(Aya, on_delete=models.CASCADE)
-    qari = models.ForeignKey(Qari, on_delete=models.CASCADE)
-    audio_file = models.FileField(upload_to="audio/")
 
 """
 Data importing using http://api.alquran.cloud/v1/ API
